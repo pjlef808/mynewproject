@@ -1,9 +1,9 @@
 html  {
     background-color: #b3ffff;  
-    text-align: left;
+    /* text-align: left; */
 }
 
-table {
+/* table {
     border-collapse: collapse;
     width: 85%;
     margin: 50px auto;
@@ -27,4 +27,4 @@ td {
     color: crimson;
     font-weight: 40;
     font-family: Georgia, 'Times New Roman', Times, serif;
-}
+} */

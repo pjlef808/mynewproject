@@ -1,8 +1,12 @@
 // var entry = document.getElementById("entry").addEventListener('click', validateForm);
-
+const taskManager = new TaskManager(0);
+const newTaskForm = document.querySelector('#newTaskForm');
 var row = 1;
   
 function validateForm() {
+// newTaskForm.addEventListener('submit', (event) => {
+//         event.preventDefault();
+        
         var a = document.getElementById("tId").value;
         var b = document.getElementById("tDesc").value;
         var c = document.getElementById("tStatus").value;
@@ -61,35 +65,39 @@ function validateForm() {
                 console.log(id)
                 console.log(id.replace('.','')) // sexy id
                 console.log(id === dup) // false!
+        
+                // row++;
 
-                var display = document.getElementById("display");
-                var row = display.rows.length;
-      
-                var newRow = display.insertRow(row);
-        
-                var cell1 = newRow.insertCell(0);
-                var cell2 = newRow.insertCell(1);
-                var cell3 = newRow.insertCell(2);
-                var cell4 = newRow.insertCell(3);
-                var cell5 = newRow.insertCell(4);
-                var cell6 = newRow.insertCell(5);
-        
-        
-                cell1.innerHTML= id;
-                cell2.innerHTML = a;
-                cell3.innerHTML = b
-                cell4.innerHTML = c;
-                cell5.innerHTML = d;
-                cell6.innerHTML = e;
-
-        
-                row++;
-
+                taskManager.addTask(a, b, c, d, e);
                 // return true;
+
+                   // Render the tasks
+                taskManager.render();
+
+                a.value = '';
+                b.value = '';
+                d.value = '';
+                e.value = '';
                 
+                document.getElementById("tId").value = "";
+                document.getElementById("tDesc").value = "";
+                document.getElementById("tStatus").value = "1";
+                document.getElementById("tAssTo").value = "";
+                document.getElementById("tDate").value = "";
+        
             }
     
           }
+
+
+
+        //   fp.addEventListener('input', e => {
+        //         if (fp.validity.rangeOverflow) {
+        //           fp.setCustomValidity('Custom message: greater than 100 not allowed.');
+        //         } else {
+        //           fp.setCustomValidity('');
+        //         }
+        //       })
               
 
 
