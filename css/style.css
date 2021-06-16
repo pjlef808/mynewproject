@@ -1,0 +1,30 @@
+html  {
+    background-color: #b3ffff;  
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 85%;
+    margin: 50px auto;
+    background-color: burlywood;
+}
+
+table, th td {
+    border: 2px solid black;
+    padding: 5px;
+}
+
+th {
+    font-size: 19px;
+    font-weight: 70;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #004d00;
+}
+
+td {
+    font-size: 25px;
+    color: crimson;
+    font-weight: 40;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
