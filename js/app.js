@@ -4,9 +4,8 @@ const newTaskForm = document.querySelector('#newTaskForm');
 var row = 1;
   
 function validateForm() {
-// newTaskForm.addEventListener('submit', (event) => {
-//         event.preventDefault();
-        
+
+        let returnV = true;
         var a = document.getElementById("tId").value;
         var b = document.getElementById("tDesc").value;
         var c = document.getElementById("tStatus").value;
@@ -16,46 +15,109 @@ function validateForm() {
         var lenA = a.length;
         var lenB = b.length;
         var lenD= d.length;
-        
+       
+        const now = new Date();
+        currDate = now.toLocaleDateString();
 
         document.getElementById('tId').style.border =""; 
+        document.getElementById('task-error').innerHTML = "";
+
         document.getElementById('tDesc').style.border ="";
+        document.getElementById('desc-error').innerHTML = "",
+
         document.getElementById('tStatus').style.border ="";  
+        document.getElementById('status-error').innerHTML = "";
+
         document.getElementById('tAssTo').style.border ="";  
         document.getElementById('tDate').style.border ="";  
 
+        document.getElementById('assto-error').innerHTML = "";
+        document.getElementById('date-error').innerHTML = "";
 
-        if ((a=="") || lenA < 6) {
-        alert("Task Name of at least 5 characters to be entered");
-            document.getElementById('tId').focus(); 
-            document.getElementById('tId').style.border ="3px solid red"; 
-            return false;
-        } 
-        else if ((b=="") || lenB < 6) {
-                alert("Description of at least 5 characters to be entered");
+        if (a=="" && b=="" && d=="" && e=="") {
+                document.getElementById('tId').focus(); 
+                document.getElementById('tId').style.border ="3px solid red";
+                document.getElementById('task-error').innerHTML = "Task Name to be minimum of 5 characters";
+
                 document.getElementById('tDesc').focus(); 
                 document.getElementById('tDesc').style.border ="3px solid red"; 
+                document.getElementById('desc-error').innerHTML = "Description to be minimum of 5 characters";
 
+                document.getElementById('tAssTo').style.border ="3px solid red";  
+                document.getElementById('assto-error').innerHTML = "Assigned To is mandatory ";
+                document.getElementById('assto-error').innerHTML = "Assigned To is mandatory ";
+
+                document.getElementById('tDate').focus(); 
+                document.getElementById('tDate').style.border ="3px solid red";  
+                document.getElementById('date-error').innerHTML = "Due Date is mandatory ";
+
+                return false;
+
+        }
+        else if (b=="" && d=="" && e=="") {
+                document.getElementById('tDesc').focus(); 
+                document.getElementById('tDesc').style.border ="3px solid red"; 
+                document.getElementById('desc-error').innerHTML = "Description to be minimum of 5 characters";
+
+                document.getElementById('tAssTo').style.border ="3px solid red";  
+                document.getElementById('assto-error').innerHTML = "Assigned To is mandatory ";
+                document.getElementById('assto-error').innerHTML = "Assigned To is mandatory ";
+
+                document.getElementById('tDate').focus(); 
+                document.getElementById('tDate').style.border ="3px solid red";  
+                document.getElementById('date-error').innerHTML = "Due Date is mandatory ";
+                
+                return false;
+
+        }
+        else if (d=="" && e=="") {
+                document.getElementById('tAssTo').style.border ="3px solid red";  
+                document.getElementById('assto-error').innerHTML = "Assigned To is mandatory ";
+                document.getElementById('assto-error').innerHTML = "Assigned To is mandatory ";
+
+                document.getElementById('tDate').focus(); 
+                document.getElementById('tDate').style.border ="3px solid red";  
+                document.getElementById('date-error').innerHTML = "Due Date is mandatory ";
+                
+                return false;
+
+        }
+        else if ((a=="") || lenA < 6) {
+                document.getElementById('tId').focus(); 
+                document.getElementById('tId').style.border ="3px solid red";
+                document.getElementById('task-error').innerHTML = "Task Name to be minimum of 5 characters";
+                return false
+        } 
+        else if ((b=="") || lenB < 6) {
+                document.getElementById('tDesc').focus(); 
+                document.getElementById('tDesc').style.border ="3px solid red"; 
+                document.getElementById('desc-error').innerHTML = "Description to be minimum of 5 characters";
                 return false;
         } 
         else if (c=="") {
-                alert('Status to be chosen');
                 document.getElementById('tStatus').focus(); 
                 document.getElementById('tStatus').style.border ="3px solid red";  
+                document.getElementById('status-error').innerHTML = "Select a status via the dropdown menu";
                 return false;
         } 
         else if ((d=="") || lenD < 6 ) {
-                alert("Assigned at least 5 characters to be entered");
                 document.getElementById('tAssTo').focus(); 
                 document.getElementById('tAssTo').style.border ="3px solid red";  
+                document.getElementById('assto-error').innerHTML = "Assigned To is mandatory ";
                 return false;
         } 
         else if (e=="") {
-                alert("Date to be entered");
                 document.getElementById('tDate').focus(); 
                 document.getElementById('tDate').style.border ="3px solid red";  
+                document.getElementById('date-error').innerHTML = "Due Date is mandatory ";
                 return false;
 
+        } else if (e < currDate) {  
+                  document.getElementById('tDate').style.border ="3px solid red";  
+                  document.getElementById('date-error').innerHTML = "Due Date cannot be in the past";
+
+                  console.log("S"); 
+                  return false;   
         } else 
         // { alert ("validation successful");
                { 
@@ -69,7 +131,6 @@ function validateForm() {
                 // row++;
 
                 taskManager.addTask(a, b, c, d, e);
-                // return true;
 
                    // Render the tasks
                 taskManager.render();
@@ -88,18 +149,4 @@ function validateForm() {
             }
     
           }
-
-
-
-        //   fp.addEventListener('input', e => {
-        //         if (fp.validity.rangeOverflow) {
-        //           fp.setCustomValidity('Custom message: greater than 100 not allowed.');
-        //         } else {
-        //           fp.setCustomValidity('');
-        //         }
-        //       })
-              
-
-
-
 

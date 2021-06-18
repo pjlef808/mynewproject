@@ -47,13 +47,15 @@
             <div class="col-sm">
               <label class="control-label" for="task">Task </label>  
               <input type="text" class="form-control" id="tId" placeholder="Task" aria-label="Task " >
+              <span class="error"><p id="task-error"></p></span>
+
 
 
             </div>
             <div class="col-sm-9">
               <label class="control-label" for="taskDesc">Task Description</label>
             <input type="text" class="form-control" id="tDesc" placeholder="Task Description" aria-label="Task Description">
-  
+            <span class="error"><p id="desc-error"></p></span>
             </div>
         </div>
 
@@ -66,12 +68,15 @@
                 <option value="3">Allocated</option>
                 <option value="4">Completed</option>
               </select>
+              <span class="error"><p id="status-error"></p></span>
+
               <!-- </form> -->
             </div>
 
         <div class="col-sm-7">
           <label class="control-label" for="assignTo">Assigned To</label>
           <input type="text" class="form-control" id="tAssTo" placeholder="Assigned To" aria-label="Assigned To">
+          <span class="error"><p id="assto-error"></p></span>
         </div>
 
         <div class="col-md col-sm col-xs-12">  
@@ -80,6 +85,7 @@
             <div class="form-group"> <!-- Date input -->
                 <label class="control-label" for="date">Date</label>
                 <input class="form-control" id="tDate" name="date" placeholder="DD/MM/YYYY" type="text"/>
+                <span class="error"><p id="date-error"></p></span>
             </div>
 
             <div class="d-grid p-2 d-md-flex justify-content-md-end">
@@ -90,6 +96,9 @@
                 <script>
                     $(document).ready(function(){
                     var date_input=$('input[name="date"]'); // name "date"
+    
+                    var selectedDate = $('#datepicker').datepicker('getDate');
+
                     var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
                     var options={
                         format: 'dd/mm/yyyy',
