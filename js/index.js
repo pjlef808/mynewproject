@@ -1,4 +1,3 @@
-// var entry = document.getElementById("entry").addEventListener('click', validateForm);
 const taskManager = new TaskManager(0);
 const newTaskForm = document.querySelector('#newTaskForm');
 var row = 1;
@@ -17,7 +16,9 @@ function validateForm() {
         var lenD= d.length;
        
         const now = new Date();
-        currDate = now.toLocaleDateString();
+        now.setHours(0,0,0,0)
+        const e1  = new Date(e);
+       
 
         document.getElementById('tId').style.border =""; 
         document.getElementById('task-error').innerHTML = "";
@@ -29,12 +30,12 @@ function validateForm() {
         document.getElementById('status-error').innerHTML = "";
 
         document.getElementById('tAssTo').style.border ="";  
-        document.getElementById('tDate').style.border ="";  
-
         document.getElementById('assto-error').innerHTML = "";
+
+        document.getElementById('tDate').style.border ="";  
         document.getElementById('date-error').innerHTML = "";
 
-        if (a=="" && b=="" && d=="" && e=="") {
+        if (a=="" && b=="" && c=="" && d=="" && e=="") {
                 document.getElementById('tId').focus(); 
                 document.getElementById('tId').style.border ="3px solid red";
                 document.getElementById('task-error').innerHTML = "Task Name to be minimum of 5 characters";
@@ -43,8 +44,10 @@ function validateForm() {
                 document.getElementById('tDesc').style.border ="3px solid red"; 
                 document.getElementById('desc-error').innerHTML = "Description to be minimum of 5 characters";
 
+                document.getElementById('tStatus').style.border ="3px solid red";  
+                document.getElementById('status-error').innerHTML = "Status is mandatory ";
+                
                 document.getElementById('tAssTo').style.border ="3px solid red";  
-                document.getElementById('assto-error').innerHTML = "Assigned To is mandatory ";
                 document.getElementById('assto-error').innerHTML = "Assigned To is mandatory ";
 
                 document.getElementById('tDate').focus(); 
@@ -112,14 +115,14 @@ function validateForm() {
                 document.getElementById('date-error').innerHTML = "Due Date is mandatory ";
                 return false;
 
-        } else if (e < currDate) {  
+        } else if (e1 < now) {  
                   document.getElementById('tDate').style.border ="3px solid red";  
                   document.getElementById('date-error').innerHTML = "Due Date cannot be in the past";
 
                   console.log("S"); 
                   return false;   
         } else 
-        // { alert ("validation successful");
+        // "validation successful";
                { 
                 id = 'id' + performance.now()
                 dup = 'id' + performance.now()
@@ -149,4 +152,3 @@ function validateForm() {
             }
     
           }
-
