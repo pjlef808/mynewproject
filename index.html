@@ -8,7 +8,6 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Form</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
    <link rel="stylesheet" href="css/styles.css">
@@ -19,90 +18,79 @@
 
 
    <header>
-
+    <h1>Recipe Finder </h1>
    </header>
 
    
 
 
 </header>
-<nav class="navbar navbar-light bg-light">
+<!-- <nav class="navbar navbar-light bg-light">
   <form class="container-fluid justify-content-start">
     <button class="btn btn-outline-success me-2 button" ></span>RESET</button>
   </form>
-</nav>
+</nav> -->
 
   <!-- start -->
   <div class="container" id="container">
-    <section class="border border-primary m-3 p-2">
-        <h5 id="nav" class="bg-primary p-2 text-light"> Tasks - New</h5>
+      <!-- <form name ="myForm" form id="newTaskForm"  onSubmit="return validateForm()">  -->
+        <form action="my-handling-form-page" method="post">
+          <ul>
+            <li>
+              <label for="name">Recipe Name:</label>
+                <input type="text" id="name" size="60" name="recipe_name" />
+            </li>
+          </ul>  
+          <br>
+          <!-- <label for="name">Recipe Meal Type:</label> -->
+          <p class="labelish">Recipe Meal Type:</p>
+            <div id="mealtype" name="mealtype" class="mealtype">
+          <div class="container">
+              <label class="radio-inline">
+                <input type="radio" name="optradio" checked>Breakfast
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="optradio" checked>Lunch
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="optradio" checked>Dinner
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="optradio" checked>Side dish
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="optradio" checked>Entree
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="optradio" checked>Dessert
+              </label>
+          </div>
+          <br>
 
-      <form name ="myForm" form id="newTaskForm"  onSubmit="return validateForm()"> 
-        <div class="row g-3 p-2"> 
-            <div class="col-sm">
-              <label class="control-label" for="tId">Task </label>  
-              <input type="text" class="form-control" id="tId" placeholder="Task" aria-label="Task " >
-              <span class="error"><p id="task-error"></p></span>
+          <div>
+            <label for="textarea">Ingredients:</label>
+            <textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+          </div>
+          <br>
 
-            </div>
-            <div class="col-sm-9">
-              <label class="control-label" for="tDesc">Task Description</label>
-            <input type="text" class="form-control" id="tDesc" placeholder="Task Description" aria-label="Task Description">
-            <span class="error"><p id="desc-error"></p></span>
-            </div>
-        </div>
+          <div>
+            <label for="textarea">Cooking Instructions:</label>
+            <textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+          </div>
+          <br>
+          <button id="entry">Save your recipe</button>
 
-        <div class="row p-2">
-            <div class="col-sm-2">  
-              <label class="control-label" for="tStatus">Status</label>
-              <select id="tStatus" type="text" class="form-control">
-                <option value="">Select Status</option>
-                <option value="New">New</option>
-                <option value="To be Allocated ">To be Allocated</option>
-                <option value="Allocated">Allocated</option>
-                <option value="Completed">Completed</option>
-              </select>
-              <span class="error"><p id="status-error"></p></span>
-            </div>
-
-        <div class="col-sm-7">
-          <label class="control-label" for="tAssTo">Assigned To</label>
-          <input type="text" class="form-control" name="assignedTo" id="tAssTo" placeholder="Assigned To" >
-          <span class="error"><p id="assto-error"></p></span>
-        </div>
-       
-        <div class="col-md col-sm col-xs-12">  
-
-            <!-- <form method="post"> -->
-            <div class="form-group"> <!-- Date input -->
-                <label class="control-label" for="tDate">Date</label>
-                <input class="form-control" id="tDate" name="date" placeholder="DD/MM/YYYY" type="date"/>
-                <span class="error"><p id="date-error"></p></span>
-              </div>
-
-            <div class="d-grid p-2 d-md-flex justify-content-md-end">
-                <button id="entry">Submit</button>
-            </div>
-        </div>
-      </form>
+          </form>
     </section>
   </div>
 
-</div>
-</div>
-<div class="task-list-container">
-  <h3 class="text-center">TASKS Manager:</h3>
-  <div class="d-flex justify-content-center">
-    <ul class="list-group" id="task-list">
-      
-    </ul>
-  </div>
-</div>
-</div>
+  <!-- start -->
+
+  <!-- end -->
 
     <footer class="container bg-light py-1 my-5">
       <p class="float-end"><a href="#">Back to top</a></p>
-      <p>&copy; 2021 PJ Task Manager &middot;
+      <p>&copy; 2021 Coding Challenge &middot;
         <a href="">Home</a> &middot;</a>
       </p>
 

@@ -1,50 +1,138 @@
-h1 {
-    font-size: 1.5rem;
-    width: 150px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: aliceblue;
-    box-shadow: 3px 3px 2px rgb(52, 70, 70) ;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    opacity: 0.5;
+form {
+    /* Just to center the form on the page */
+    margin: 0 auto;
+    width: 800px;
+    /* To see the outline of the form */
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    background-color: azure;
 }
-.image {
-    width: 40px;
-    margin-left: auto;
-    margin-right: auto;
-   
-
+header {
+    text-align: center;
 }
-.label {
-    background-color: burlywood;
-    display: block;
-    width: 200px;
+.container {
+    text-align: left;
 }
 
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
-.input {
-    width: 900px;
-  
+
+form li + li {
+    margin-top: 1em;
 }
-.form {
-    display: flex;
-    flex-direction: row;
+
+label {
+    /* To make sure that all labels have the same size and are properly aligned */
+    width: 120px;
 }
+input,
+textarea {
+    /* To make sure that all text fields have the same font settings By default, textareas have a monospace font */
+    /* font: 1em sans-serif; */
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:15px;
+    /* To give the same size to all text fields */
+    width: 300px;
+    box-sizing: border-box; /* To harmonize the look & feel of text field border */
+    border: 1px solid #999;
+
+}
+
+input:focus,
+textarea:focus {
+    /* To give a little highlight on active elements */
+    border-color: #000;
+}
+
+.textarea {
+    /* To properly align multiline text fields with their labels */
+    vertical-align: top;
+    /* To give enough room to type some text */
+    height: 8em;
+
+}
+label,
+textarea{
+  display:inline-block;
+  vertical-align:middle;
+
+}
+
+.button {
+    /* To position the buttons to the same position of the text fields */
+    margin-right: 5px;
+}
+
+button { 
+    /* This extra margin represent roughly the same space as the space between the labels and their text fields */
+    margin-right: 0.70em;
+    background-color: #a3cb11 !important;
+    margin:0px auto; 
+    display:block;
+    font-family: 'Brush Script MT', cursive;
+    font-size:40px;
+
+    
+} 
+/* start */
+.labelish {
+    text-align: center;
+    font-family: 'Brush Script MT', cursive;
+    font-size:40px;
+}
+/*end */
+input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    left: 10px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid rgb(57, 8, 192);
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #ffa500;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+/* end */
+
 .form-control {
-    margin-top: 5px;
+    margin-top: 10px;
     margin-bottom: 4px;
 }
-#nav0{
-    box-shadow: 3px 3px 2px rgb(52, 70, 70) ;
+input[type="radio"] {
+    vertical-align: left; 
+}
+.form-check {
+align-content: center;
+padding-right: 10px;
 }
 
-#nav{
-    box-shadow: 3px 3px 2px  #ffc107;
+.rType {
+    clear:both;
 }
-#nav1{
-    box-shadow: 3px 3px 2px  #198754;
-}
+/* start*/
+  /* end */
+
 .error {
     font-size: 12px;
     padding: 6px 0 4px;
